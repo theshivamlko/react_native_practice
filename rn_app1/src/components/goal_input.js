@@ -61,7 +61,11 @@ export default function GoalInput(props) {
               elevation: 3,
               backgroundColor: "red",
             }}
-            onPress={handleSubmit}
+            onPress={() => {
+                console.log(`Goal: ${enteredGoal}`);
+                props.onSubmit(enteredGoal);
+                setEnteredGoal("");
+            }}
           >
             <Text
               style={{
