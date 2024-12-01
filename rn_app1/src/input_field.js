@@ -9,6 +9,7 @@ import {
 } from "react-native";
 
 import { useState } from "react";
+import GoalItem from "./components/goal_item";
 
 export default function GoalListing() {
   const [enteredGoal, setEnteredGoal] = useState("");
@@ -108,19 +109,11 @@ export default function GoalListing() {
         data={getGoalsList}
         alwaysBounceHorizontal={false}
         initialNumToRender={10}
-        maxToRenderPerBatch={10} 
+        maxToRenderPerBatch={10}
         windowSize={40} // Number of items outside of the visible area to keep rendered
-
-
         renderItem={(item) => {
-        var keyExtractor=`${item.item}${item.index}`
 
-          console.log(`FlatList Item: ${item.item} ${item.index}`);
-          return (
-            <View key={keyExtractor}>
-              <Text >{item.item}</Text>
-            </View>
-          );
+          return <GoalItem itemData={item} />;
         }}
 
         // Can be used to set key for every item in the list
