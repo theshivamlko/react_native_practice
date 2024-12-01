@@ -7,14 +7,39 @@ import {
   View,
 } from "react-native";
 
-export default function InputField() {
-  return (
-    <View>
-      <Text style={styles.textStyle}>
-        Open up App.js to start working on your app!
-      </Text>
+import { useState } from "react";
 
-      <View style={styles.inputContainer}>
+export default function InputField() {
+  const [enteredGoal, setEnteredGoal] = useState("");
+  const [getGoalsList, setGoalsList] = useState([]);
+
+  function goalInputHandler(input) {
+    console.log(`Input: ${input}`);
+    setEnteredGoal(input);
+  }
+
+  function addGoalHandler() {
+    console.log(`Goal: ${enteredGoal}`);
+    setGoalsList((currentCourseGoals) => [...currentCourseGoals, enteredGoal]);
+  }
+
+  return (
+    <View
+      style={{
+        flexDirection: "columns",
+      }}
+    >
+      <View
+        style={{
+          borderBottomColor: "black",
+          borderBottomWidth: 1,
+        }}
+      >
+        <Text style={styles.textStyle}>
+          Open up App.js to start working on your app!
+        </Text>
+
+        <View style={styles.inputContainer}>
           <TextInput
             placeholder="Enter Goal"
             style={{
@@ -23,21 +48,38 @@ export default function InputField() {
               borderRadius: 5,
               width: "60%",
             }}
+            onChangeText={(input) => goalInputHandler(input)}
           />
 
-          <View style={{
-            height:40
-          }}>
+          <View
+            style={{
+              height: 40,
+            }}
+          >
             <Button
               title="Add Goal"
               style={{
                 padding: 0,
                 margin: 0,
+                backgroundColor: "yellow",
+                color: "red",
               }}
-              onPress={() => alert("Button pressed")}
+              onPress={() => addGoalHandler()}
             ></Button>
           </View>
         </View>
+      </View>
+
+      <View
+        style={{
+          height: 40,
+        }}
+      ></View>
+      <View>
+        {getGoalsList.map((goal, index) => (
+          <Text key={`${goal}${index}`}>{goal}</Text>
+        ))}
+      </View>
     </View>
   );
 }
