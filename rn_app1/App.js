@@ -7,16 +7,15 @@ import {
   View,
 } from "react-native";
 
-import InputField from "./src/input_field";
+import GoalListing from "./src/input_field";
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <ScrollView>
+      
         <Text>Open up App.js to start working on your app!</Text>
-        <InputField />
-        
-      </ScrollView>
+        <GoalListing />
+    
     </View>
   );
 }
@@ -27,7 +26,6 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff", // light grey color
     alignItems: "center",
     justifyContent: "center",
-    padding: 50,
   },
   textStyle: {
     color: "red",
@@ -39,8 +37,6 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-
     marginBottom: 20,
-
   },
 });

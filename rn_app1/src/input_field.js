@@ -1,16 +1,16 @@
 import {
   Button,
-  ScrollView,
   StyleSheet,
   Text,
   TextInput,
   View,
   Pressable,
+  FlatList,
 } from "react-native";
 
 import { useState } from "react";
 
-export default function InputField() {
+export default function GoalListing() {
   const [enteredGoal, setEnteredGoal] = useState("");
   const [getGoalsList, setGoalsList] = useState([]);
 
@@ -20,7 +20,7 @@ export default function InputField() {
   }
 
   function addGoalHandler() {
-    console.log(`Goal: ${enteredGoal}`);
+    console.log(`Goal: ${enteredGoal} ${getGoalsList.length}`);
     setGoalsList((currentCourseGoals) => [...currentCourseGoals, enteredGoal]);
   }
 
@@ -67,8 +67,8 @@ export default function InputField() {
                 title="Add Goal"
                 color="red"
                 style={{
-                  width:100,
-                  height:50,
+                  width: 100,
+                  height: 50,
                   alignItems: "center",
                   justifyContent: "center",
                   borderRadius: 4,
@@ -77,9 +77,13 @@ export default function InputField() {
                 }}
                 onPress={() => addGoalHandler()}
               >
-                <Text style={{
-                  color: "white",
-                }}>Add Goal</Text>
+                <Text
+                  style={{
+                    color: "white",
+                  }}
+                >
+                  Add Goal
+                </Text>
               </Pressable>
             </View>
           </View>
@@ -91,11 +95,37 @@ export default function InputField() {
           height: 40,
         }}
       ></View>
-      <View>
+      {/* <View>
         {getGoalsList.map((goal, index) => (
+          <View>
           <Text key={`${goal}${index}`}>{goal}</Text>
+          </View>
+
         ))}
-      </View>
+      </View> */}
+
+      <FlatList
+        data={getGoalsList}
+        alwaysBounceHorizontal={false}
+        initialNumToRender={10}
+        maxToRenderPerBatch={10} 
+        windowSize={40} // Number of items outside of the visible area to keep rendered
+
+
+        renderItem={(item) => {
+        var keyExtractor=`${item.item}${item.index}`
+
+          console.log(`FlatList Item: ${item.item} ${item.index}`);
+          return (
+            <View key={keyExtractor}>
+              <Text >{item.item}</Text>
+            </View>
+          );
+        }}
+
+        // Can be used to set key for every item in the list
+        // keyExtractor={(item, index) => `${item}${index}`}
+      />
     </View>
   );
 }
