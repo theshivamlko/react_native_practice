@@ -15,11 +15,12 @@ import GoalInput from "./components/goal_input";
 export default function GoalListing() {
   const [getGoalsList, setGoalsList] = useState([]);
 
-
-
   function addGoalHandler(enteredGoalText) {
     console.log(`Goal: ${enteredGoalText} ${getGoalsList.length}`);
-    setGoalsList((currentCourseGoals) => [...currentCourseGoals, enteredGoalText]);
+    setGoalsList((currentCourseGoals) => [
+      ...currentCourseGoals,
+      enteredGoalText,
+    ]);
   }
 
   return (
@@ -62,7 +63,19 @@ export default function GoalListing() {
         maxToRenderPerBatch={10}
         windowSize={40} // Number of items outside of the visible area to keep rendered
         renderItem={(item) => {
-          return <GoalItem itemData={item} />;
+          return (
+            <GoalItem
+              itemData={item}
+              onDelete={(index) => {
+                console.log(`Delete: ${index}`);
+                setGoalsList((currentCourseGoals) => {
+                  return currentCourseGoals.filter((goal, goalIndex) => {
+                    return goalIndex !== index;
+                  });
+                });
+              }}
+            />
+          );
         }}
 
         // Can be used to set key for every item in the list
