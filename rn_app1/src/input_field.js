@@ -5,6 +5,7 @@ import {
   Text,
   TextInput,
   View,
+  Pressable,
 } from "react-native";
 
 import { useState } from "react";
@@ -26,7 +27,7 @@ export default function InputField() {
   return (
     <View
       style={{
-        flexDirection: "columns",
+        flexDirection: "column",
       }}
     >
       <View
@@ -56,16 +57,31 @@ export default function InputField() {
               height: 40,
             }}
           >
-            <Button
-              title="Add Goal"
+            <View
               style={{
-                padding: 0,
-                margin: 0,
+                borderRadius: 10,
                 backgroundColor: "yellow",
-                color: "red",
               }}
-              onPress={() => addGoalHandler()}
-            ></Button>
+            >
+              <Pressable
+                title="Add Goal"
+                color="red"
+                style={{
+                  width:100,
+                  height:50,
+                  alignItems: "center",
+                  justifyContent: "center",
+                  borderRadius: 4,
+                  elevation: 3,
+                  backgroundColor: "red",
+                }}
+                onPress={() => addGoalHandler()}
+              >
+                <Text style={{
+                  color: "white",
+                }}>Add Goal</Text>
+              </Pressable>
+            </View>
           </View>
         </View>
       </View>
