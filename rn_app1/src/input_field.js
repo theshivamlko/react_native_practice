@@ -10,19 +10,16 @@ import {
 
 import { useState } from "react";
 import GoalItem from "./components/goal_item";
+import GoalInput from "./components/goal_input";
 
 export default function GoalListing() {
-  const [enteredGoal, setEnteredGoal] = useState("");
   const [getGoalsList, setGoalsList] = useState([]);
 
-  function goalInputHandler(input) {
-    console.log(`Input: ${input}`);
-    setEnteredGoal(input);
-  }
 
-  function addGoalHandler() {
-    console.log(`Goal: ${enteredGoal} ${getGoalsList.length}`);
-    setGoalsList((currentCourseGoals) => [...currentCourseGoals, enteredGoal]);
+
+  function addGoalHandler(enteredGoalText) {
+    console.log(`Goal: ${enteredGoalText} ${getGoalsList.length}`);
+    setGoalsList((currentCourseGoals) => [...currentCourseGoals, enteredGoalText]);
   }
 
   return (
@@ -41,54 +38,7 @@ export default function GoalListing() {
           Open up App.js to start working on your app!
         </Text>
 
-        <View style={styles.inputContainer}>
-          <TextInput
-            placeholder="Enter Goal"
-            style={{
-              borderWidth: 1,
-              borderColor: "grey",
-              borderRadius: 5,
-              width: "60%",
-            }}
-            onChangeText={(input) => goalInputHandler(input)}
-          />
-
-          <View
-            style={{
-              height: 40,
-            }}
-          >
-            <View
-              style={{
-                borderRadius: 10,
-                backgroundColor: "yellow",
-              }}
-            >
-              <Pressable
-                title="Add Goal"
-                color="red"
-                style={{
-                  width: 100,
-                  height: 50,
-                  alignItems: "center",
-                  justifyContent: "center",
-                  borderRadius: 4,
-                  elevation: 3,
-                  backgroundColor: "red",
-                }}
-                onPress={() => addGoalHandler()}
-              >
-                <Text
-                  style={{
-                    color: "white",
-                  }}
-                >
-                  Add Goal
-                </Text>
-              </Pressable>
-            </View>
-          </View>
-        </View>
+        <GoalInput onSubmit={addGoalHandler} />
       </View>
 
       <View
@@ -112,7 +62,6 @@ export default function GoalListing() {
         maxToRenderPerBatch={10}
         windowSize={40} // Number of items outside of the visible area to keep rendered
         renderItem={(item) => {
-
           return <GoalItem itemData={item} />;
         }}
 
