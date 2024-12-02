@@ -7,7 +7,7 @@ import {
   View,
 } from "react-native";
 
-import GoalListing from "./src/input_field";
+import GoalListing from "./src/goal_list";
 
 export default function App() {
   return (
