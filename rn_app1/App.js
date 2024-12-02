@@ -1,4 +1,4 @@
-import {StyleSheet, Text, View,} from "react-native";
+import {SafeAreaView, StyleSheet, View} from "react-native";
 import {useState} from "react";
 
 import GoalListing from "./src/goal_list";
@@ -19,12 +19,19 @@ export default function App() {
     }
 
     return (
+
         <View style={styles.container}>
 
-            <Text>Open up App.js page</Text>
-            {screen}
+            <SafeAreaView style={{
+                flex: 1,
+                paddingBlock: 10,
+            }}>
+
+                {screen}
+            </SafeAreaView>
 
         </View>
+
     );
 }
 
