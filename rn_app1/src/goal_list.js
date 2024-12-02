@@ -1,4 +1,4 @@
-import {FlatList, Modal, Pressable, StyleSheet, Text, View,} from "react-native";
+import {FlatList, Image, Modal, Pressable, StyleSheet, Text, View} from "react-native";
 
 import {useState} from "react";
 import GoalItem from "./components/goal_item";
@@ -84,14 +84,36 @@ export default function GoalListing() {
             <View
                 style={{
                     height: "20%",
-                }}
-            >
+                }}>
+
                 <Modal presentationStyle="pageSheet" visible={isModelVisible} animationType="slide">
 
                     <View style={{
                         alignItems: "center",
                         justifyContent: "center",
                     }}>
+
+                        <Image
+                            source={require("../assets/images/tick_mark.jpg")}
+
+                            style={{
+                                padding: 50,
+                                height: 60,
+                                width: 60,
+
+                            }}/>
+                        <Image
+                            source={{
+                                uri: "https://t4.ftcdn.net/jpg/00/34/92/71/360_F_34927102_Gn5vKa4sAoIaGqsZSir9WtfrFEWawrq2.jpg",
+                                cache: 'force-cache'
+                            }}
+
+                            style={{
+                                padding: 50,
+                                height: 60,
+                                width: 60,
+
+                            }}/>
 
                         <Text style={{
                             fontSize: 20,
@@ -124,9 +146,7 @@ export default function GoalListing() {
                                 }}>NO</Text>
                             </Pressable>
                         </View>
-
                     </View>
-
                 </Modal>
             </View>
         </View>
