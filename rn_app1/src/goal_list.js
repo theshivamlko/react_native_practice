@@ -4,7 +4,7 @@ import {useState} from "react";
 import GoalItem from "./components/goal_item";
 import GoalInput from "./components/goal_input";
 
-export default function GoalListing() {
+export default function GoalListing(props) {
     const [getGoalsList, setGoalsList] = useState([]);
     const [isModelVisible, setModelVisible] = useState(false);
     const [currentIndex, setCurrentIndex] = useState(null);
@@ -26,6 +26,12 @@ export default function GoalListing() {
         setCurrentIndex(null);
     }
 
+    console.log(`Current Index: ${currentIndex}`);
+    var text1 = "0";
+    if (props.userNumber != null) {
+        text1 = props.userNumber;
+    }
+
     return (
         <View
             style={{
@@ -39,7 +45,7 @@ export default function GoalListing() {
                 }}
             >
                 <Text style={styles.textStyle}>
-                    Open up App.js to start working on your app!
+                    Number from Splash Screen {text1}
                 </Text>
 
                 <GoalInput onSubmit={addGoalHandler}/>
