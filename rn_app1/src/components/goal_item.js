@@ -8,6 +8,7 @@ function GoalItem(itemParam) {
         `FlatList Item: ${itemParam.itemData.item} ${itemParam.itemData.index}`
     );
 
+
     return (
         <View
             key={keyExtractor}
@@ -24,12 +25,12 @@ function GoalItem(itemParam) {
                            },
                        ]}
             >
-                <Text style={{color: '#fff'}}>{itemParam.itemData.item}</Text>
+                <Text style={{color: '#fff', fontFamily: 'open-sans'}}>{itemParam.itemData.item}</Text>
             </Pressable>
             <Pressable onPress={() => itemParam.onDelete(itemParam.itemData.index)}>
                 <View style={{padding: 10, flexDirection: 'row'}}>
                     <MaterialIcons name="delete" size={24} color="grey"></MaterialIcons>
-                    <Text>Delete</Text>
+                    <Text style={{fontFamily: 'open-sans-bold'}}>Delete</Text>
                 </View>
             </Pressable>
         </View>
