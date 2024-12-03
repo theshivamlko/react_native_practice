@@ -40,6 +40,7 @@ export default function HomePage() {
                         <Text>Dimensions</Text>
                         <Text>OS: {os}</Text>
                         <Text>Version: {version}</Text>
+                        <Text>Version: {Platform.select({android: 1, ios: 2})}</Text>
 
                         <View style={{flexDirection: 'row'}}>
                             <View style={{backgroundColor: 'red', flex: 1}}/>
