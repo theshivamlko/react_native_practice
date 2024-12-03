@@ -40,11 +40,14 @@ export default function HomePage() {
                             <View style={{backgroundColor: 'yellow', width: 20, height: deviceHeight * 0.14}}/>
                         </View>
                     </View>
-
-                    <View style={{height: 40, width: '100%', borderColor: '#000', borderWidth: 1}}>
-
+                    <View style={{height: 40}}></View>
+                    <View style={{height: 40, width: '100%', borderColor: '#000', borderWidth: 1 ,flexDirection:'column'}}>
                         <TextInput inputMode={'text'} disableFullscreenUI={true} />
                     </View>
+                    <View style={{height: 40, width: '100%', borderColor: '#000', borderWidth: 1 ,flexDirection:'column'}}>
+                        <TextInput inputMode={'text'} disableFullscreenUI={true} />
+                    </View>
+                   
 
                 </View>
         </KeyboardAvoidingView>
@@ -56,6 +59,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#f1f1f1',
+        width: '100%',
         alignItems: 'center',
         justifyContent: 'flex-start',
         flexDirection: 'column',
