@@ -5,6 +5,7 @@ import GoalListing from "./src/goal_list";
 import SplashScreen from "./src/screens/splash_screen";
 
 export default function App() {
+    console.log(`App()`);
 
     const [userNumber, setUserNumber] = useState(null);
 

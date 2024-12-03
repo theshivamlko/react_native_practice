@@ -1,5 +1,6 @@
 import {Pressable, Text, View,} from "react-native";
 import Colors from "../utils/app_theme";
+import {MaterialIcons} from "@expo/vector-icons";
 
 function GoalItem(itemParam) {
     var keyExtractor = `${itemParam.itemData.item}${itemParam.itemData.index}`;
@@ -16,7 +17,7 @@ function GoalItem(itemParam) {
             }}
         >
             <Pressable android_ripple={{color: Colors.itemBackgroundColor}}
-                       style={({pressed}) => [
+                       style={(pressed) => [
                            {
                                backgroundColor: pressed ? Colors.primary600 : Colors.primary500,
                                padding: 10,
@@ -26,7 +27,8 @@ function GoalItem(itemParam) {
                 <Text style={{color: '#fff'}}>{itemParam.itemData.item}</Text>
             </Pressable>
             <Pressable onPress={() => itemParam.onDelete(itemParam.itemData.index)}>
-                <View style={{padding: 10}}>
+                <View style={{padding: 10, flexDirection: 'row'}}>
+                    <MaterialIcons name="delete" size={24} color="grey"></MaterialIcons>
                     <Text>Delete</Text>
                 </View>
             </Pressable>

@@ -1,21 +1,32 @@
 import {FlatList, Image, Modal, Pressable, StyleSheet, Text, View} from "react-native";
 
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import GoalItem from "./components/goal_item";
 import GoalInput from "./components/goal_input";
 
 export default function GoalListing(props) {
+    console.log(`GoalListing(${props})`);
     const [getGoalsList, setGoalsList] = useState([]);
     const [isModelVisible, setModelVisible] = useState(false);
     const [currentIndex, setCurrentIndex] = useState(null);
 
     function addGoalHandler(enteredGoalText) {
         console.log(`Goal: ${enteredGoalText} ${getGoalsList.length}`);
+
+
         setGoalsList((currentCourseGoals) => [
             ...currentCourseGoals,
             enteredGoalText,
         ]);
     }
+
+
+    useEffect(() => {
+        console.log(`useEffect GoalListing: ${getGoalsList}`);
+        if (getGoalsList.length > 2) {
+            alert("You have reached the maximum limit of goals");
+        }
+    }, [getGoalsList]);
 
     function showModel() {
         setModelVisible(true);

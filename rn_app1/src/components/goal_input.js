@@ -2,6 +2,7 @@ import {Pressable, StyleSheet, Text, TextInput, View,} from "react-native";
 import {useState} from "react";
 
 export default function GoalInput(props) {
+    console.log(`GoalInput(${props})`);
     const [enteredGoal, setEnteredGoal] = useState("");
 
     function goalInputHandler(input) {
