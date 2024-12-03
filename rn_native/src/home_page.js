@@ -14,8 +14,9 @@ import {
 import PlatformComponent from "./platform/platform_component";
 import CategoriesScreen from "./screens/categories_screen";
 
-export default function HomePage() {
+export default function HomePage({navigation}) {
 
+    console.log("HomePage init")
 
     const dimen = useWindowDimensions();
 
@@ -48,7 +49,16 @@ export default function HomePage() {
                             <PlatformComponent/>
 
                             <View style={{flexDirection: 'row'}}>
-                                <View style={{backgroundColor: 'red', flex: 1}}/>
+                                <View style={{backgroundColor: 'red', flex: 1}}>
+
+                                    <Pressable onPress={()=>{
+                                        navigation.navigate('CategoryScreen');
+                                    }}>
+
+                                    <Text>Open CategoryScreen</Text>
+                                    </Pressable>
+
+                                </View>
                                 <View style={{backgroundColor: 'brown', flex: 1}}/>
                                 <View style={{flexDirection: 'row'}}>
                                     <View style={{backgroundColor: 'blue', width: 100, height: deviceHeight * 0.10}}/>
@@ -103,7 +113,7 @@ export default function HomePage() {
             <ScrollView>
                 <View style={{alignSelf: 'stretch', flexDirection: 'column'}}>
                     <Text>Navigation</Text>
-                    <CategoriesScreen/>
+                    <CategoriesScreen navigation={navigation}/>
                 </View>
             </ScrollView>
 

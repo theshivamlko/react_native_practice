@@ -2,8 +2,9 @@ import {CATEGORIES} from '../data/dummy-data'
 import {FlatList, Pressable, View, Text} from "react-native";
 
 
-export default function CategoryGridTile({category}) {
+export default function CategoryGridTile({category,onPress}) {
     console.log(`CategoryGridTile ${category} ${category.title}`);
+
     return (
         <View style={{
             flexDirection: 'column',
@@ -18,7 +19,7 @@ export default function CategoryGridTile({category}) {
             elevation:2
 
         }}>
-            <Pressable style={{padding: 4, alignItems: 'center'}}>
+            <Pressable style={{padding: 4, alignItems: 'center'}} onPress={onPress}>
                 <Text style={{
                     fontWeight: 'bold',
 
