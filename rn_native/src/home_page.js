@@ -12,6 +12,7 @@ import {
     Platform
 } from 'react-native';
 import PlatformComponent from "./platform/platform_component";
+import CategoriesScreen from "./screens/categories_screen";
 
 export default function HomePage() {
 
@@ -25,76 +26,86 @@ export default function HomePage() {
     console.log(`deviceHeight ${deviceHeight}`);
     return (
 
-        <View style={{alignSelf: 'stretch',/* backgroundColor: 'red'*/}}>
-            <ScrollView>
-                <KeyboardAvoidingView style={{
-                    flex: 1,
-                    behavior :"position"
-                }}>
+        <View style={{alignSelf: 'stretch', flexDirection: 'column'/* backgroundColor: 'red'*/}}>
+                <View style={{alignSelf: 'stretch', flexDirection: 'column'}}>
 
-                    <Text>Hello</Text>
-                    <View style={styles.container}>
+                    <ScrollView>
+                    <KeyboardAvoidingView style={{
+                        flex: 1,
+                        behavior: "position"
+                    }}>
 
-                        <StatusBar style="light" />
-                        <Text style={{fontSize: 20}}>Platform</Text>
+                        <Text>Hello</Text>
+                        <View style={styles.container}>
 
-                        <Text>Dimensions</Text>
-                        <Text>OS: {os}</Text>
-                        <Text>Version: {version}</Text>
-                        <Text>Version: {Platform.select({android: 1, ios: 2})}</Text>
-                        <PlatformComponent/>
+                            <StatusBar style="light"/>
+                            <Text style={{fontSize: 20}}>Platform</Text>
 
-                        <View style={{flexDirection: 'row'}}>
-                            <View style={{backgroundColor: 'red', flex: 1}}/>
-                            <View style={{backgroundColor: 'brown', flex: 1}}/>
+                            <Text>Dimensions</Text>
+                            <Text>OS: {os}</Text>
+                            <Text>Version: {version}</Text>
+                            <Text>Version: {Platform.select({android: 1, ios: 2})}</Text>
+                            <PlatformComponent/>
+
                             <View style={{flexDirection: 'row'}}>
-                                <View style={{backgroundColor: 'blue', width: 100, height: deviceHeight * 0.10}}/>
-                                <View style={{backgroundColor: 'yellow', width: 20, height: deviceHeight * 0.14}}/>
+                                <View style={{backgroundColor: 'red', flex: 1}}/>
+                                <View style={{backgroundColor: 'brown', flex: 1}}/>
+                                <View style={{flexDirection: 'row'}}>
+                                    <View style={{backgroundColor: 'blue', width: 100, height: deviceHeight * 0.10}}/>
+                                    <View style={{backgroundColor: 'yellow', width: 20, height: deviceHeight * 0.14}}/>
+                                </View>
                             </View>
-                        </View>
-                        <View style={{
-                            height: 40,
-                            width: '100%',
-                            borderColor: '#000',
-                            borderWidth: 1,
-                            flexDirection: 'column'
-                        }}>
-                            <TextInput inputMode={'text'} disableFullscreenUI={true}/>
-                        </View>
-                        <View style={{
-                            height: 40,
-                            width: '100%',
-                            borderColor: '#000',
-                            borderWidth: 1,
-                            flexDirection: 'column'
-                        }}>
-                            <TextInput inputMode={'text'} disableFullscreenUI={true}/>
-                        </View>
-                        <View style={{
-                            height: 40,
-                            width: '100%',
-                            borderColor: '#000',
-                            borderWidth: 1,
-                            flexDirection: 'column'
-                        }}>
-                            <TextInput inputMode={'text'} disableFullscreenUI={true}/>
-                        </View>
-                        <View style={{
-                            height: 40,
-                            width: '100%',
-                            borderColor: '#000',
-                            borderWidth: 1,
-                            flexDirection: 'column'
-                        }}>
-                            <TextInput inputMode={'text'} disableFullscreenUI={true}/>
+                            <View style={{
+                                height: 40,
+                                width: '100%',
+                                borderColor: '#000',
+                                borderWidth: 1,
+                                flexDirection: 'column'
+                            }}>
+                                <TextInput inputMode={'text'} disableFullscreenUI={true}/>
+                            </View>
+                            <View style={{
+                                height: 40,
+                                width: '100%',
+                                borderColor: '#000',
+                                borderWidth: 1,
+                                flexDirection: 'column'
+                            }}>
+                                <TextInput inputMode={'text'} disableFullscreenUI={true}/>
+                            </View>
+                            <View style={{
+                                height: 40,
+                                width: '100%',
+                                borderColor: '#000',
+                                borderWidth: 1,
+                                flexDirection: 'column'
+                            }}>
+                                <TextInput inputMode={'text'} disableFullscreenUI={true}/>
+                            </View>
+                            <View style={{
+                                height: 40,
+                                width: '100%',
+                                borderColor: '#000',
+                                borderWidth: 1,
+                                flexDirection: 'column'
+                            }}>
+                                <TextInput inputMode={'text'} disableFullscreenUI={true}/>
+                            </View>
+
                         </View>
 
-                    </View>
 
+                    </KeyboardAvoidingView>
+                    </ScrollView>
+                </View>
+
+
+            <ScrollView>
+                <View style={{alignSelf: 'stretch', flexDirection: 'column'}}>
                     <Text>Navigation</Text>
-                </KeyboardAvoidingView>
+                    <CategoriesScreen/>
+                </View>
             </ScrollView>
-
 
 
         </View>
