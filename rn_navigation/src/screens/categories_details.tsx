@@ -1,8 +1,9 @@
 import {CATEGORIES} from '../data/dummy-data'
 import {FlatList, View, Text} from "react-native";
+import Category from "../data/models/category";
 
 
-export default function CategoriesDetailScreen({category,navigation}) {
+export default function CategoriesDetailScreen({category}: { category: Category } ) {
 
     console.log("CategoriesScreen init")
     return (

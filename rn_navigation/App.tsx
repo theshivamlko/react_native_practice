@@ -1,36 +1,35 @@
-import {StatusBar} from 'expo-status-bar';
-import {StyleSheet, Text, View, SafeAreaView} from 'react-native';
-import HomePage from "./src/home_page";
-import {NavigationContainer} from "@react-navigation/native";
-import {createNativeStackNavigator} from "@react-navigation/native-stack";
-import CategoriesScreen from "./src/screens/categories_screen";
-import CategoriesDetailScreen from "./src/screens/categories_details";
+import * as React from 'react';
+import { View, Text } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import HomePage from "./src/home_page.tsx";
+import CategoriesScreen from "./src/screens/categories_screen.tsx";
+import CategoriesDetailScreen from "./src/screens/categories_details.tsx";
 
-
-const NavStack = createNativeStackNavigator();
-
-export default function App() {
+function HomeScreen() {
     return (
-        <>
-            <StatusBar style="dark"/>
-            <NavigationContainer>
-                <NavStack.Navigator initialRouteName={"HomePage"}>
-                    <NavStack.Screen name="HomePage" component={HomePage}/>
-                    <NavStack.Screen name="CategoryScreen" component={CategoriesScreen}/>
-                    <NavStack.Screen name="CategoryDetails" component={CategoriesDetailScreen}/>
-                </NavStack.Navigator>
-            </NavigationContainer>
-        </>
+        <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+            <Text>Home Screen2</Text>
+        </View>
     );
 }
 
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        width: '100%',
-        backgroundColor: 'grey',
-        alignItems: 'flex-start',
-        justifyContent: 'flex-start',
+const Stack = createNativeStackNavigator();
 
-    },
-});
+function RootStack() {
+    return (
+        <Stack.Navigator initialRouteName={"Home"}>
+            <Stack.Screen name="Home" component={HomePage} />
+            <Stack.Screen name="CategoriesScreen" component={CategoriesScreen} />
+            {/*<Stack.Screen name="CategoriesDetailScreen" component={CategoriesDetailScreen} />*/}
+        </Stack.Navigator>
+    );
+}
+
+export default function App() {
+    return (
+        <NavigationContainer>
+            <RootStack />
+        </NavigationContainer>
+    );
+}

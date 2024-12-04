@@ -1,4 +1,3 @@
-import {StatusBar} from 'expo-status-bar';
 import {
     Pressable,
     SafeAreaView,
@@ -12,6 +11,8 @@ import {
     Platform
 } from 'react-native';
 
+import {useNavigation} from '@react-navigation/native';
+
 /*const PlatformComponent = Platform.select({
     ios: () => require('./platform/platform_component_ios').default,
     android: () => require('./platform/platform_component_android').default,
@@ -21,8 +22,9 @@ import CategoriesScreen from "./screens/categories_screen";
 
 // import SharedPreferenceRN from './android/native_shared_preference';
 
-export default function HomePage({navigation}: { navigation: any }) {
+export default function HomePage( ) {
 
+    const navigation=useNavigation();
     console.log("HomePage init")
 
     const dimen = useWindowDimensions();
@@ -34,7 +36,7 @@ export default function HomePage({navigation}: { navigation: any }) {
     console.log(`deviceHeight ${deviceHeight}`);
     return (
 
-        <View style={{alignSelf: 'stretch', flexDirection: 'column'/* backgroundColor: 'red'*/}}>
+        <View style={{alignSelf: 'stretch', flexDirection: 'column'/* backgroundColor: 'red'*/,backgroundColor:'grey'}}>
             <View style={{alignSelf: 'stretch', flexDirection: 'column'}}>
 
                 <ScrollView>
@@ -47,7 +49,6 @@ export default function HomePage({navigation}: { navigation: any }) {
                         <Text>Hello</Text>
                         <View style={styles.container}>
 
-                            <StatusBar style="light"/>
                             <Text style={{fontSize: 20}}>Platform</Text>
 
                             <Text>Dimensions</Text>
@@ -57,16 +58,17 @@ export default function HomePage({navigation}: { navigation: any }) {
                             {/*<PlatformComponent/>*/}
 
                             <View style={{flexDirection: 'row'}}>
+                                <Pressable onPress={() => {
+                                    navigation.navigate('CategoriesScreen');
+                                }}>
                                 <View style={{backgroundColor: 'red', flex: 1}}>
 
-                                    <Pressable onPress={() => {
-                                        navigation.navigate('CategoryScreen');
-                                    }}>
+
 
                                         <Text>Open CategoryScreen</Text>
-                                    </Pressable>
 
                                 </View>
+                                </Pressable>
                                 <View style={{backgroundColor: 'brown', flex: 1}}>
                                     <Pressable onPress={() => {
                                         // const name = SharedPreferenceRN?.getItem('name');
@@ -135,7 +137,7 @@ export default function HomePage({navigation}: { navigation: any }) {
             <ScrollView>
                 <View style={{alignSelf: 'stretch', flexDirection: 'column'}}>
                     <Text>Navigation</Text>
-                    <CategoriesScreen navigation={navigation}/>
+                    <CategoriesScreen  />
                 </View>
             </ScrollView>
 
