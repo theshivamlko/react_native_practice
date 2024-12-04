@@ -11,10 +11,10 @@ import {
     KeyboardAvoidingView, ScrollView,
     Platform
 } from 'react-native';
-import PlatformComponent from "./platform/platform_component";
+import PlatformComponent from "./platform/platform_component.android";
 import CategoriesScreen from "./screens/categories_screen";
 
-import SharedPreferenceRN from './android/native_shared_preference';
+// import NativeLocalStorage from './specs/NativeLocalStorage';
 
 export default function HomePage({navigation}) {
 
@@ -63,8 +63,8 @@ export default function HomePage({navigation}) {
                                 </View>
                                 <View style={{backgroundColor: 'brown', flex: 1}}>
                                     <Pressable onPress={() => {
-                                        const name = SharedPreferenceRN?.getItem('name');
-                                        console.log(`SharedPreferenceRN name ${name} `)
+                                        // const name = NativeLocalStorage?.getItem('name');
+                                        // console.log(`SharedPreferenceRN name ${name} `)
                                     }}>
                                         <Text>Read SharedPred</Text>
                                     </Pressable>
@@ -72,8 +72,8 @@ export default function HomePage({navigation}) {
                                 <View style={{flexDirection: 'row'}}>
                                     <View style={{backgroundColor: 'blue', width: 100, height: deviceHeight * 0.10}}>
                                         <Pressable onPress={() => {
-                                            SharedPreferenceRN?.setItem('name', "Shivam");
-                                            console.log(`SharedPreferenceRN setItem `)
+                                            // NativeLocalStorage?.setItem('name', "Shivam");
+                                            // console.log(`SharedPreferenceRN setItem `)
                                         }}>
                                             <Text>Write SharedPred</Text>
                                         </Pressable>

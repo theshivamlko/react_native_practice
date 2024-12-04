@@ -26,15 +26,17 @@
     "@types/jest": "^29.5.14",
     "@types/react": "^18.3.12",
     "@types/react-test-renderer": "^18.3.0",
-    "typescript": "^5.7.2"
+    "typescript": "^5.7.2",
+    "react-native-codegen": "^0.70.7"
   },
   "private": true,
   "codegenConfig": {
-    "name": "NativeSharedPreference",
+    "name": "NativeMySharedPref",
     "type": "modules",
-    "jsSrcsDir": "src",
+    "jsSrcsDir": "src/specs",
     "android": {
-      "javaPackageName": "com.anonymous.rn_native"
+      "javaPackageName": "com.anonymous.rn_native",
+      "language": "kotlin"
     }
   }
 }

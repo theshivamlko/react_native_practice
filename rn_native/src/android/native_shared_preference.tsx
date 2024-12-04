@@ -1,5 +1,5 @@
-import type {TurboModule} from 'react-native';
-import {TurboModuleRegistry} from 'react-native';
+import type { TurboModule } from 'react-native';
+import { TurboModuleRegistry } from 'react-native';
 
 export interface NativeSharedPreference extends TurboModule {
     setItem(value: string, key: string): void;
@@ -7,3 +7,5 @@ export interface NativeSharedPreference extends TurboModule {
     removeItem(key: string): void;
     clear(): void;
 }
+
+export default TurboModuleRegistry.getEnforcing<NativeSharedPreference>('NativeSharedPreference');
