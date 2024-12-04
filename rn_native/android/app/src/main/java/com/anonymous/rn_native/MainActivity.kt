@@ -10,7 +10,7 @@ import com.facebook.react.bridge.ReactApplicationContext
 import com.facebook.react.defaults.DefaultNewArchitectureEntryPoint.fabricEnabled
 import com.facebook.react.defaults.DefaultReactActivityDelegate
 
-import com.anonymous.rn_native.NativeLocalStorageModule
+//import com.anonymous.rn_native.NativeLocalStorageModule
 
 import expo.modules.ReactActivityDelegateWrapper
 
@@ -36,7 +36,7 @@ class MainActivity : ReactActivity() {
   override fun createReactActivityDelegate(): ReactActivityDelegate {
     return ReactActivityDelegateWrapper(
           this,
-          BuildConfig.IS_NEW_ARCHITECTURE_ENABLED,
+          true,
           object : DefaultReactActivityDelegate(
               this,
               mainComponentName,
@@ -65,6 +65,6 @@ class MainActivity : ReactActivity() {
 }
 
 
-class NativeLocalStorageModule(reactContext: ReactApplicationContext) : NativeSharedPreferenceRN(reactContext) {
-
-}
+//class NativeLocalStorageModule(reactContext: ReactApplicationContext) : NativeSharedPreferenceRN(reactContext) {
+//
+//}
