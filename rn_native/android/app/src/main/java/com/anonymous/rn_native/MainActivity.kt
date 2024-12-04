@@ -2,11 +2,15 @@ package com.anonymous.rn_native
 
 import android.os.Build
 import android.os.Bundle
+import com.facebook.react.BuildConfig
 
 import com.facebook.react.ReactActivity
 import com.facebook.react.ReactActivityDelegate
+import com.facebook.react.bridge.ReactApplicationContext
 import com.facebook.react.defaults.DefaultNewArchitectureEntryPoint.fabricEnabled
 import com.facebook.react.defaults.DefaultReactActivityDelegate
+
+import com.anonymous.rn_native.NativeLocalStorageModule
 
 import expo.modules.ReactActivityDelegateWrapper
 
@@ -58,4 +62,9 @@ class MainActivity : ReactActivity() {
       // because it's doing more than [Activity.moveTaskToBack] in fact.
       super.invokeDefaultOnBackPressed()
   }
+}
+
+
+class NativeLocalStorageModule(reactContext: ReactApplicationContext) : NativeSharedPreferenceRN(reactContext) {
+
 }

@@ -14,6 +14,8 @@ import {
 import PlatformComponent from "./platform/platform_component";
 import CategoriesScreen from "./screens/categories_screen";
 
+import SharedPreferenceRN from './android/native_shared_preference';
+
 export default function HomePage({navigation}) {
 
     console.log("HomePage init")
@@ -28,9 +30,9 @@ export default function HomePage({navigation}) {
     return (
 
         <View style={{alignSelf: 'stretch', flexDirection: 'column'/* backgroundColor: 'red'*/}}>
-                <View style={{alignSelf: 'stretch', flexDirection: 'column'}}>
+            <View style={{alignSelf: 'stretch', flexDirection: 'column'}}>
 
-                    <ScrollView>
+                <ScrollView>
                     <KeyboardAvoidingView style={{
                         flex: 1,
                         behavior: "position"
@@ -51,17 +53,31 @@ export default function HomePage({navigation}) {
                             <View style={{flexDirection: 'row'}}>
                                 <View style={{backgroundColor: 'red', flex: 1}}>
 
-                                    <Pressable onPress={()=>{
+                                    <Pressable onPress={() => {
                                         navigation.navigate('CategoryScreen');
                                     }}>
 
-                                    <Text>Open CategoryScreen</Text>
+                                        <Text>Open CategoryScreen</Text>
                                     </Pressable>
 
                                 </View>
-                                <View style={{backgroundColor: 'brown', flex: 1}}/>
+                                <View style={{backgroundColor: 'brown', flex: 1}}>
+                                    <Pressable onPress={() => {
+                                        const name = SharedPreferenceRN?.getItem('name');
+                                        console.log(`SharedPreferenceRN name ${name} `)
+                                    }}>
+                                        <Text>Read SharedPred</Text>
+                                    </Pressable>
+                                </View>
                                 <View style={{flexDirection: 'row'}}>
-                                    <View style={{backgroundColor: 'blue', width: 100, height: deviceHeight * 0.10}}/>
+                                    <View style={{backgroundColor: 'blue', width: 100, height: deviceHeight * 0.10}}>
+                                        <Pressable onPress={() => {
+                                            SharedPreferenceRN?.setItem('name', "Shivam");
+                                            console.log(`SharedPreferenceRN setItem `)
+                                        }}>
+                                            <Text>Write SharedPred</Text>
+                                        </Pressable>
+                                    </View>
                                     <View style={{backgroundColor: 'yellow', width: 20, height: deviceHeight * 0.14}}/>
                                 </View>
                             </View>
@@ -106,8 +122,8 @@ export default function HomePage({navigation}) {
 
 
                     </KeyboardAvoidingView>
-                    </ScrollView>
-                </View>
+                </ScrollView>
+            </View>
 
 
             <ScrollView>

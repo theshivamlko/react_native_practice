@@ -22,5 +22,15 @@
   "devDependencies": {
     "@babel/core": "^7.20.0"
   },
-  "private": true
+  "private": true,
+  "codegenConfig": {
+    "name": "NativeSharedPreference",
+    "type": "modules",
+    "jsSrcsDir": "src",
+    "android": {
+      "javaPackageName":"com.anonymous.rn_native"
+    }
+
+
+  }
 }
