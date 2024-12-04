@@ -11,12 +11,17 @@ import {
     KeyboardAvoidingView, ScrollView,
     Platform
 } from 'react-native';
-import PlatformComponent from "./platform/platform_component.android";
+
+/*const PlatformComponent = Platform.select({
+    ios: () => require('./platform/platform_component_ios').default,
+    android: () => require('./platform/platform_component_android').default,
+    default: () => require('./platform/platform_component').default,
+})();*/
 import CategoriesScreen from "./screens/categories_screen";
 
-// import NativeLocalStorage from './specs/NativeLocalStorage';
+// import SharedPreferenceRN from './android/native_shared_preference';
 
-export default function HomePage({navigation}) {
+export default function HomePage({navigation}: { navigation: any }) {
 
     console.log("HomePage init")
 
@@ -34,9 +39,10 @@ export default function HomePage({navigation}) {
 
                 <ScrollView>
                     <KeyboardAvoidingView style={{
-                        flex: 1,
-                        behavior: "position"
-                    }}>
+                        flex: 1
+                    }}
+                                          behavior="position"
+                    >
 
                         <Text>Hello</Text>
                         <View style={styles.container}>
@@ -48,7 +54,7 @@ export default function HomePage({navigation}) {
                             <Text>OS: {os}</Text>
                             <Text>Version: {version}</Text>
                             <Text>Version: {Platform.select({android: 1, ios: 2})}</Text>
-                            <PlatformComponent/>
+                            {/*<PlatformComponent/>*/}
 
                             <View style={{flexDirection: 'row'}}>
                                 <View style={{backgroundColor: 'red', flex: 1}}>
@@ -63,7 +69,7 @@ export default function HomePage({navigation}) {
                                 </View>
                                 <View style={{backgroundColor: 'brown', flex: 1}}>
                                     <Pressable onPress={() => {
-                                        // const name = NativeLocalStorage?.getItem('name');
+                                        // const name = SharedPreferenceRN?.getItem('name');
                                         // console.log(`SharedPreferenceRN name ${name} `)
                                     }}>
                                         <Text>Read SharedPred</Text>
@@ -72,7 +78,7 @@ export default function HomePage({navigation}) {
                                 <View style={{flexDirection: 'row'}}>
                                     <View style={{backgroundColor: 'blue', width: 100, height: deviceHeight * 0.10}}>
                                         <Pressable onPress={() => {
-                                            // NativeLocalStorage?.setItem('name', "Shivam");
+                                            // SharedPreferenceRN?.setItem('name', "Shivam");
                                             // console.log(`SharedPreferenceRN setItem `)
                                         }}>
                                             <Text>Write SharedPred</Text>
