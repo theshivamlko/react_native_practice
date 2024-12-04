@@ -1,19 +1,22 @@
 import {CATEGORIES} from '../data/dummy-data'
 import {FlatList, View, Text} from "react-native";
+import { } from "@react-navigation/native";
 import Category from "../data/models/category";
 
 
-export default function CategoriesDetailScreen({category}: { category: Category } ) {
+export default function CategoriesDetailScreen({ route}: {  route:any }   ) {
 
-    console.log("CategoriesScreen init")
+    const routesInfo = route;
+    console.log(`CategoriesScreen init ${route.params} `)
+    console.log(route.params)
     return (
-        <View style={{flexDirection: 'column'}}>
+        <View style={{flexDirection: 'column',backgroundColor:routesInfo.params.category.color}}>
 
             <Text>Categories Details</Text>
 
             <Text style={{
                 padding: 8
-            }}>{category.title}</Text>
+            }}>{route.params.category.title}</Text>
 
 
         </View>

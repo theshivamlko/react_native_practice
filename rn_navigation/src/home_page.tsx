@@ -63,8 +63,6 @@ export default function HomePage( ) {
                                 }}>
                                 <View style={{backgroundColor: 'red', flex: 1}}>
 
-
-
                                         <Text>Open CategoryScreen</Text>
 
                                 </View>
@@ -78,7 +76,7 @@ export default function HomePage( ) {
                                     </Pressable>
                                 </View>
                                 <View style={{flexDirection: 'row'}}>
-                                    <View style={{backgroundColor: 'blue', width: 100, height: deviceHeight * 0.10}}>
+                                    <View style={{backgroundColor: 'blue', width: 100, height: deviceHeight * 0.20}}>
                                         <Pressable onPress={() => {
                                             // SharedPreferenceRN?.setItem('name', "Shivam");
                                             // console.log(`SharedPreferenceRN setItem `)
@@ -86,7 +84,13 @@ export default function HomePage( ) {
                                             <Text>Write SharedPred</Text>
                                         </Pressable>
                                     </View>
-                                    <View style={{backgroundColor: 'yellow', width: 20, height: deviceHeight * 0.14}}/>
+                                    <View style={{backgroundColor: 'yellow', width: 100, height: deviceHeight * 0.10}}>
+                                        <Pressable onPress={() => {
+
+                                        }}>
+                                            <Text>Write SharedPred</Text>
+                                        </Pressable>
+                                    </View>
                                 </View>
                             </View>
                             <View style={{

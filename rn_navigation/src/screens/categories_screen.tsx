@@ -22,7 +22,7 @@ export default function CategoriesScreen( ) {
             <FlatList data={CATEGORIES} renderItem={({item}) => {
                 return <CategoryGridTile category={item} onPress={() => {
                     console.log(`CategoryGridTile Click ${item.title}`);
-                   // navigation.navigate('CategoriesDetailScreen');
+                   navigation.navigate('CategoriesDetailScreen',{category:item});
                 }}/>;
             }}
                       keyExtractor={(item) => item.id}

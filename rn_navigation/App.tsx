@@ -21,7 +21,7 @@ function RootStack() {
         <Stack.Navigator initialRouteName={"Home"}>
             <Stack.Screen name="Home" component={HomePage} />
             <Stack.Screen name="CategoriesScreen" component={CategoriesScreen} />
-            {/*<Stack.Screen name="CategoriesDetailScreen" component={CategoriesDetailScreen} />*/}
+            <Stack.Screen name="CategoriesDetailScreen" component={CategoriesDetailScreen} />
         </Stack.Navigator>
     );
 }
