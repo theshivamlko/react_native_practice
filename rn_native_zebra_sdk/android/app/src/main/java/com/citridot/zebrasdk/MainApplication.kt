@@ -21,7 +21,9 @@ class MainApplication : Application(), ReactApplication {
                 PackageList(this).packages.apply {
                     Log.v("MainApplication1", "getPackages: $this")
                     // Packages that cannot be autolinked yet can be added manually here, for example:
+                    Log.v("MainApplication1", "getPackages1: $size")
                     add(NativeLocalStoragePackage())
+                    Log.v("MainApplication1", "getPackages2: $size")
                 }
 
             override fun getJSMainModuleName(): String = "index"

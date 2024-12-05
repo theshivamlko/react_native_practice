@@ -1,9 +1,14 @@
 package com.citridot.zebrasdk
 
+import android.util.Log
 import com.facebook.react.bridge.ReactApplicationContext
 
 class NativeLocalStorageModule(reactContext: ReactApplicationContext) : NativeLocalStorageSpec(reactContext) {
 
+    init {
+        Log.v("NativeLocalStorageModule", "init")
+
+    }
     override fun getName() = NAME
 
     override fun setString(key: String?, value: String?) {
