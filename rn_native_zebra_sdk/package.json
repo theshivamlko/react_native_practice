@@ -37,7 +37,7 @@
     "node": ">=18"
   },
   "codegenConfig": {
-    "name": "NativeLocalStorageSpec",
+    "name": "NativeZebraSDK",
     "type": "all",
     "jsSrcsDir": "src/specs",
     "android": {

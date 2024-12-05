@@ -59,7 +59,7 @@ function App(): React.JSX.Element {
           <MyButton
             text="Read Shared pref"
             onClick={() => {
-          const n:string|null=  NativeLocalStorage.getString("key");
+          const n:string|null=  NativeLocalStorage.getString('key');
                setRandomNumber(`${n}`);
             }}
           />
