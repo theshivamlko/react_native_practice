@@ -5,11 +5,12 @@
  * @format
  */
 
-import React from 'react';
+import React, {useState} from 'react';
 import {
   SafeAreaView,
   ScrollView,
   StatusBar,
+  Text,
   useColorScheme,
   View,
 } from 'react-native';
@@ -27,6 +28,7 @@ import NativeLocalStorage from './src/specs/NativeLocalStorage';
 function App(): React.JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
 
+  const [randomNumber,setRandomNumber]=useState('')
 
   React.useEffect(() => {
     console.log('Module Name:', NativeLocalStorage);
@@ -50,15 +52,15 @@ function App(): React.JSX.Element {
             onClick={() => {
               const n:number=Math.floor(Math.random() * (1000 - 1 + 1)) + 1;
               console.log("n",n);
-             // NativeLocalStorage.setString("key",n.toString());
+              NativeLocalStorage.setString('key',n.toString());
             }}
           />
-          {/*<Text>Read: {randomNumber}</Text>*/}
+          <Text>Read: {randomNumber}</Text>
           <MyButton
             text="Read Shared pref"
             onClick={() => {
-              // const n:string|null=  NativeLocalStorage.getString("key");
-              // setRandomNumber(`${n}`);
+          const n:string|null=  NativeLocalStorage.getString("key");
+               setRandomNumber(`${n}`);
             }}
           />
         </View>
