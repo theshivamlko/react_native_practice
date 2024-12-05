@@ -8,6 +8,7 @@
 import React from 'react';
 // import type {PropsWithChildren} from 'react';
 import {
+  AppRegistry,
   SafeAreaView,
   ScrollView,
   StatusBar,
@@ -20,10 +21,12 @@ import {useState} from 'react';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 import MyButton from './src/HomePage.tsx';
 
+import NativeLocalStorage from './src/specs/NativeLocalStorage';
+
 function App() {
   const isDarkMode = useColorScheme() === 'dark';
 
-  const [randomNumber, setRandomNumber] = useState(0);
+  const [randomNumber, setRandomNumber] = useState('');
 
   // const backgroundStyle = {
   //   backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
@@ -44,14 +47,17 @@ function App() {
           <MyButton
             text="Write Randome number to Shared pref"
             onClick={() => {
-              setRandomNumber(Math.floor(Math.random() * (1000 - 1 + 1)) + 1);
+              const n:number=Math.floor(Math.random() * (1000 - 1 + 1)) + 1;
+              console.log("n",n);
+             NativeLocalStorage.setString("key",n.toString());
             }}
           />
           <Text>Read: {randomNumber}</Text>
           <MyButton
             text="Read Shared pref"
             onClick={() => {
-              // setRandomNumber(Math.floor(Math.random() * (1000 - 1 + 1)) + 1);
+              // const n:string|null=  NativeLocalStorage.getString("key");
+              // setRandomNumber(`${n}`);
             }}
           />
         </View>
@@ -78,5 +84,8 @@ function App() {
 //     fontWeight: '700',
 //   },
 // });
+
+// AppRegistry.registerComponent('Appname', () => App);
+
 
 export default App;
