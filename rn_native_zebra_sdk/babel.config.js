@@ -1,3 +1,3 @@
 module.exports = {
-  presets: ['module:@react-specs/babel-preset'],
+  presets: ['module:@react-native/babel-preset'],
 };
