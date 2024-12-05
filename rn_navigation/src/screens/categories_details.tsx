@@ -1,6 +1,6 @@
 import {CATEGORIES, MEALS} from '../data/dummy-data';
 import {FlatList, View, Text, Image} from 'react-native';
-import {useEffect, useState} from 'react';
+import {useEffect, useLayoutEffect, useState} from 'react';
 import {} from '@react-navigation/native';
 import Meal from '../data/models/meal.tsx';
 
@@ -18,6 +18,13 @@ export default function CategoriesDetailScreen({route}: {route: any}) {
 
     console.log(`mealsList ${mealsList.length}`);
   }, []);
+
+  useLayoutEffect(() => {
+    // run to update something Before component is mounted
+
+  }, []);
+
+
   return (
     <View
       style={{
