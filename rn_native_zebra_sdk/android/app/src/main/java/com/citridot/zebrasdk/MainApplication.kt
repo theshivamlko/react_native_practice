@@ -22,7 +22,8 @@ class MainApplication : Application(), ReactApplication {
                     Log.v("MainApplication1", "getPackages: ")
               // Packages that cannot be autolinked yet can be added manually here, for example:
                     Log.v("MainApplication1", "getPackages1: $size")
-                    add(NativeLocalStoragePackage())
+                  //  add(NativeLocalStoragePackage())
+                    add(ZebraSDKPackage())
                     Log.v("MainApplication1", "getPackages2: $size")
 
                 for (i in 0 until size) {

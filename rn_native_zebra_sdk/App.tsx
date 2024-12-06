@@ -19,7 +19,9 @@ import {
   Colors,
 } from 'react-native/Libraries/NewAppScreen';
 import MyButton from './src/HomePage';
-import NativeLocalStorage from './src/specs/NativeLocalStorage';
+import NativeZebraSDK from './src/specs/NativeZebraSDK';
+// import NativeLocalStorage from './src/specs/NativeLocalStorage';
+// import NativeZebraSDK from './src/specs/NativeZebraSDK';
 
 
 
@@ -28,10 +30,10 @@ import NativeLocalStorage from './src/specs/NativeLocalStorage';
 function App(): React.JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
 
-  const [randomNumber,setRandomNumber]=useState('')
+  const [randomNumber,setRandomNumber] = useState('')
 
   React.useEffect(() => {
-    console.log('Module Name:', NativeLocalStorage);
+    // console.log('Module Name:', NativeLocalStorage);
    // const storedValue = NativeLocalStorage?.getString('myKey');
   }, []);
 
@@ -52,15 +54,25 @@ function App(): React.JSX.Element {
             onClick={() => {
               const n:number=Math.floor(Math.random() * (1000 - 1 + 1)) + 1;
               console.log("n",n);
-              NativeLocalStorage.setString('key',n.toString());
+              setRandomNumber("1")
+             // NativeLocalStorage.setString('key',n.toString());
             }}
           />
           <Text>Read: {randomNumber}</Text>
           <MyButton
             text="Read Shared pref"
             onClick={() => {
-          const n:string|null=  NativeLocalStorage.getString('key');
-               setRandomNumber(`${n}`);
+          // const n:string|null=  NativeLocalStorage.getString('key');
+          //      setRandomNumber(`${n}`);
+            }}
+          />
+
+          <MyButton
+            text="Scan devices"
+            onClick={() => {
+              NativeZebraSDK.getAvailableDevices().then((devices) => {
+                console.log('devices', devices);
+              });
             }}
           />
         </View>

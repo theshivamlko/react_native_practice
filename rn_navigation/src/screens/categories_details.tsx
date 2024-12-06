@@ -22,6 +22,8 @@ export default function CategoriesDetailScreen({route}: {route: any}) {
   useLayoutEffect(() => {
     // run to update something Before component is mounted
 
+    // navigation.setOptions({}) , can set option after navigation happens
+
   }, []);
 
 

@@ -1,23 +1,24 @@
 package com.citridot.zebrasdk
 
+import android.bluetooth.BluetoothDevice
+import android.util.Log
 import com.facebook.react.bridge.Promise
 import com.facebook.react.bridge.ReactApplicationContext
 import com.zebra.sdk.printer.discovery.BluetoothDiscoverer
-import com.zebra.sdk.printer.discovery.DiscoveredPrinter
+
 class ZebraSDKModule(reactApplicationContext: ReactApplicationContext) : NativeZebraSDKSpec(reactApplicationContext) {
 
 
-
-
     override fun getAvailableDevices(promise: Promise?) {
-
         try {
-            BluetoothDiscoverer.findPrinters(reactApplicationContext, object : BluetoothDiscoveryHandle( object : onResultCallback {
+            BluetoothDiscoverer.findPrinters(reactApplicationContext, object : BluetoothDiscoveryHandle(object : onResultCallback {
                 override fun onResult(result: List<Map<String, String>>) {
+                    Log.v("ZebraSDKModule", "getAvailableDevices onResult ${result.size}")
                     promise?.resolve(result)
                 }
 
                 override fun onError(error: String) {
+                    Log.v("ZebraSDKModule", "getAvailableDevices onError $error")
                     promise?.reject("Error", error)
                 }
             }) {})
@@ -30,7 +31,11 @@ class ZebraSDKModule(reactApplicationContext: ReactApplicationContext) : NativeZ
     }
 
     override fun connectToDevice(deviceId: String?): String {
-        TODO("Not yet implemented")
+        return ""
+    }
+
+    companion object {
+        const val NAME = "ZebraSDKModule"
     }
 
 }
