@@ -70,6 +70,7 @@ function App(): React.JSX.Element {
           <MyButton
             text="Scan devices"
             onClick={() => {
+              console.log("Scan devices start");
               NativeZebraSDK.getAvailableDevices().then((devices) => {
                 console.log('devices', devices);
               });

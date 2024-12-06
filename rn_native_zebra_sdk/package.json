@@ -37,7 +37,7 @@
     "node": ">=18"
   },
   "codegenConfig": {
-    "name": "NativeZebraSDK",
+    "name": "NativeZebraSDKSpec",
     "type": "all",
     "jsSrcsDir": "src/specs",
     "android": {

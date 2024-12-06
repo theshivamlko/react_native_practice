@@ -1,13 +1,13 @@
 package com.citridot.zebrasdk
 
-import android.bluetooth.BluetoothDevice
 import android.util.Log
 import com.facebook.react.bridge.Promise
 import com.facebook.react.bridge.ReactApplicationContext
 import com.zebra.sdk.printer.discovery.BluetoothDiscoverer
 
-class ZebraSDKModule(reactApplicationContext: ReactApplicationContext) : NativeZebraSDKSpec(reactApplicationContext) {
+class NativeZebraSDKModule(reactApplicationContext: ReactApplicationContext) : NativeZebraSDKSpec(reactApplicationContext) {
 
+    override fun getName() = NAME
 
     override fun getAvailableDevices(promise: Promise?) {
         try {
