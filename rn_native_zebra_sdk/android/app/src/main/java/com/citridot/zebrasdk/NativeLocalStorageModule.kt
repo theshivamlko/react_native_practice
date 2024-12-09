@@ -4,8 +4,7 @@ import android.util.Log
 import com.facebook.react.bridge.Callback
 import com.facebook.react.bridge.ReactApplicationContext
 import com.facebook.react.bridge.WritableArray
-import com.zebra.sdk.printer.discovery.BluetoothDiscoverer
-import kotlin.coroutines.coroutineContext
+
 
 class NativeLocalStorageModule(reactContext: ReactApplicationContext) : NativeLocalStorageSpec(reactContext) {
 

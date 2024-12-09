@@ -80,7 +80,7 @@ android {
     namespace "com.citridot.zebrasdk"
     defaultConfig {
         applicationId "com.citridot.zebrasdk"
-        minSdkVersion rootProject.ext.minSdkVersion
+        minSdkVersion 26
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
@@ -108,9 +108,10 @@ android {
 }
 
 dependencies {
-    // The version of react-native is set by the React Native Gradle Plugin
+
+    implementation fileTree(dir:'libs',includes:['*.aar'])
     implementation("com.facebook.react:react-android")
-    implementation files('libs/ZSDK_ANDROID_API.jar')
+//    implementation files('libs/ZSDK_ANDROID_API.jar')
     if (hermesEnabled.toBoolean()) {
         implementation("com.facebook.react:hermes-android")
     } else {
