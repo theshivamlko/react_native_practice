@@ -1,5 +1,6 @@
 package com.citridot.zebrasdk;
 
+import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Handler;
 import android.util.Log;
@@ -31,18 +32,20 @@ public class ZebraRFIDUtil implements IDcsSdkApiDelegate, Readers.RFIDReaderEven
     private ArrayList<ReaderDevice> availableRFIDReaderList;
     private ReaderDevice readerDevice;
     private RFIDReader reader;
-    private MainActivity context;
-    private ArrayList<DCSScannerInfo> scannerList;
+    private Context context;
+    private ArrayList<DCSScannerInfo> scannerList=new ArrayList<>();
     private EventHandler eventHandler;
     private int MAX_POWER = 270;
 
-    void onCreate(MainActivity activity) {
-        context = activity;
+    ZebraRFIDUtil(Context context) {
+        this.context = context;
+        readers = new Readers(context, ENUM_TRANSPORT.BLUETOOTH);
+        readers.attach(this);
+    }
+    void onCreate() {
         scannerList = new ArrayList<>();
         // Select bluetooth as connection mode
-        readers = new Readers(context, ENUM_TRANSPORT.BLUETOOTH);
         // add listeners
-        readers.attach(this);
         try {
             // Scan paired RFID Devices
             availableRFIDReaderList = readers.GetAvailableRFIDReaderList();

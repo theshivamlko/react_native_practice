@@ -1,6 +1,7 @@
 package com.citridot.zebrasdk
 
 import android.util.Log
+import com.facebook.react.bridge.Arguments
 import com.facebook.react.bridge.Callback
 import com.facebook.react.bridge.ReactApplicationContext
 import com.facebook.react.bridge.WritableArray
@@ -12,27 +13,34 @@ class NativeLocalStorageModule(reactContext: ReactApplicationContext) : NativeLo
         Log.v("NativeLocalStorageModule", "init")
 
     }
+
     override fun getName() = NAME
+
     override fun getDeviceList(): WritableArray? {
-        TODO("Not yet implemented")
+        Log.v("NativeLocalStorageModule", "NativeLocalStorageModule")
+        // return a list as WritableArray
+        var list = Arguments.createArray()
+
+        return list
     }
 
     override fun connectToDevice(deviceId: String?): String? {
-        TODO("Not yet implemented")
+        Log.v("NativeLocalStorageModule", "connectToDevice")
+        return ""
     }
 
     override fun startScan() {
-        TODO("Not yet implemented")
+        Log.v("NativeLocalStorageModule", "startScan")
+
     }
 
     override fun stopScan() {
-        TODO("Not yet implemented")
+        Log.v("NativeLocalStorageModule", "stopScan")
     }
 
     override fun listenToRFID(onListen: Callback?) {
-        TODO("Not yet implemented")
+        Log.v("NativeLocalStorageModule", "listenToRFID $onListen")
     }
-
 
     companion object {
         const val NAME = "NativeLocalStorage"

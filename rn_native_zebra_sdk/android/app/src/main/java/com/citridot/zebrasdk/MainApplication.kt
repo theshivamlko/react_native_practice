@@ -15,6 +15,11 @@ import com.facebook.soloader.SoLoader
 
 class MainApplication : Application(), ReactApplication {
 
+    // initlialize on Application created
+    init {
+        zebraRFIDUtils = ZebraRFIDUtil(applicationContext)
+    }
+
     override val reactNativeHost: ReactNativeHost =
         object : DefaultReactNativeHost(this) {
             override fun getPackages(): List<ReactPackage> =
@@ -50,5 +55,9 @@ class MainApplication : Application(), ReactApplication {
             // If you opted-in for the New Architecture, we load the native entry point for this app.
             load()
         }
+    }
+
+    companion object {
+        lateinit var zebraRFIDUtils: ZebraRFIDUtil;
     }
 }
