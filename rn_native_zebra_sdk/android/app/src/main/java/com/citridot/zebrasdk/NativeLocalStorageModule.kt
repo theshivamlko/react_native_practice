@@ -13,7 +13,6 @@ class NativeLocalStorageModule(reactContext: ReactApplicationContext) : NativeLo
         Log.v("NativeLocalStorageModule", "init")
 
     }
-
     override fun getName() = NAME
 
     override fun getDeviceList(): WritableArray? {
