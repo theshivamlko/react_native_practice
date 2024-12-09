@@ -1,25 +1,41 @@
-//package com.citridot.zebrasdk
-//
-//import android.util.Log
-//import com.facebook.react.bridge.ReactApplicationContext
-//
-//class NativeLocalStorageModule(reactContext: ReactApplicationContext) : NativeLocalStorageSpec(reactContext) {
-//
-//    init {
-//        Log.v("NativeLocalStorageModule", "init")
-//
-//    }
-//    override fun getName() = NAME
-//
-//    override fun setString(key: String?, value: String?) {
-//        reactApplicationContext.getSharedPreferences("MySharedPreference", 0).edit().putString(key, value).apply()
-//    }
-//
-//    override fun getString(key: String?): String? {
-//        return reactApplicationContext.getSharedPreferences("MySharedPreference", 0).getString(key, "N/A")
-//    }
-//
-//    companion object {
-//        const val NAME = "NativeLocalStorage"
-//    }
-//}
+package com.citridot.zebrasdk
+
+import android.util.Log
+import com.facebook.react.bridge.Callback
+import com.facebook.react.bridge.ReactApplicationContext
+import com.facebook.react.bridge.WritableArray
+import com.zebra.sdk.printer.discovery.BluetoothDiscoverer
+import kotlin.coroutines.coroutineContext
+
+class NativeLocalStorageModule(reactContext: ReactApplicationContext) : NativeLocalStorageSpec(reactContext) {
+
+    init {
+        Log.v("NativeLocalStorageModule", "init")
+
+    }
+    override fun getName() = NAME
+    override fun getDeviceList(): WritableArray? {
+        TODO("Not yet implemented")
+    }
+
+    override fun connectToDevice(deviceId: String?): String? {
+        TODO("Not yet implemented")
+    }
+
+    override fun startScan() {
+        TODO("Not yet implemented")
+    }
+
+    override fun stopScan() {
+        TODO("Not yet implemented")
+    }
+
+    override fun listenToRFID(onListen: Callback?) {
+        TODO("Not yet implemented")
+    }
+
+
+    companion object {
+        const val NAME = "NativeLocalStorage"
+    }
+}
