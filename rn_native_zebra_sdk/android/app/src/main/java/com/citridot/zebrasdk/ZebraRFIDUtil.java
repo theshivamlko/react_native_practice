@@ -132,7 +132,7 @@ public class ZebraRFIDUtil implements IDcsSdkApiDelegate, Readers.RFIDReaderEven
                 Log.d("MyRFID", "Thread error1 "+e.getMessage());
                 e.printStackTrace();
             }catch (Exception e){
-                Log.d("MyRFID", "Thread error2 "+e.getMessage());
+                Log.d("MyRFID", "Threadxc error2 "+e.getMessage());
                 e.printStackTrace();
             }
         }

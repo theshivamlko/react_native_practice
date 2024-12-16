@@ -12,6 +12,7 @@
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		40FCB7F22D070B6400F2989A /* RCTNativeLocalStorage.mm in Sources */ = {isa = PBXBuildFile; fileRef = 40FCB7F12D070B6400F2989A /* RCTNativeLocalStorage.mm */; };
 		73795C1B3D36AE99C83EB8A1 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */; };
 		7699B88040F8A987B510C191 /* libPods-rn_native_zebra_sdk-rn_native_zebra_sdkTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-rn_native_zebra_sdk-rn_native_zebra_sdkTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
@@ -41,6 +42,8 @@
 		19F6CBCC0A4E27FBF8BF4A61 /* libPods-rn_native_zebra_sdk-rn_native_zebra_sdkTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-rn_native_zebra_sdk-rn_native_zebra_sdkTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B4392A12AC88292D35C810B /* Pods-rn_native_zebra_sdk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-rn_native_zebra_sdk.debug.xcconfig"; path = "Target Support Files/Pods-rn_native_zebra_sdk/Pods-rn_native_zebra_sdk.debug.xcconfig"; sourceTree = "<group>"; };
 		40FCB7EE2D07022B00F2989A /* rn_native_zebra_sdkRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = rn_native_zebra_sdkRelease.entitlements; path = rn_native_zebra_sdk/rn_native_zebra_sdkRelease.entitlements; sourceTree = "<group>"; };
+		40FCB7F02D070B6400F2989A /* RCTNativeLocalStorage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RCTNativeLocalStorage.h; sourceTree = "<group>"; };
+		40FCB7F12D070B6400F2989A /* RCTNativeLocalStorage.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = RCTNativeLocalStorage.mm; sourceTree = "<group>"; };
 		5709B34CF0A7D63546082F79 /* Pods-rn_native_zebra_sdk.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-rn_native_zebra_sdk.release.xcconfig"; path = "Target Support Files/Pods-rn_native_zebra_sdk/Pods-rn_native_zebra_sdk.release.xcconfig"; sourceTree = "<group>"; };
 		5B7EB9410499542E8C5724F5 /* Pods-rn_native_zebra_sdk-rn_native_zebra_sdkTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-rn_native_zebra_sdk-rn_native_zebra_sdkTests.debug.xcconfig"; path = "Target Support Files/Pods-rn_native_zebra_sdk-rn_native_zebra_sdkTests/Pods-rn_native_zebra_sdk-rn_native_zebra_sdkTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5DCACB8F33CDC322A6C60F78 /* libPods-rn_native_zebra_sdk.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-rn_native_zebra_sdk.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -111,6 +114,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		40FCB7EF2D070B2300F2989A /* NativeLocalStorage */ = {
+			isa = PBXGroup;
+			children = (
+				40FCB7F02D070B6400F2989A /* RCTNativeLocalStorage.h */,
+				40FCB7F12D070B6400F2989A /* RCTNativeLocalStorage.mm */,
+			);
+			path = NativeLocalStorage;
+			sourceTree = "<group>";
+		};
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
@@ -121,6 +133,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				40FCB7EF2D070B2300F2989A /* NativeLocalStorage */,
 				13B07FAE1A68108700A75B9A /* rn_native_zebra_sdk */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* rn_native_zebra_sdkTests */,
@@ -400,6 +413,7 @@
 			files = (
 				13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
+				40FCB7F22D070B6400F2989A /* RCTNativeLocalStorage.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -590,7 +604,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					/usr/lib/swift,
 					"$(inherited)",
@@ -660,7 +674,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					/usr/lib/swift,
 					"$(inherited)",
