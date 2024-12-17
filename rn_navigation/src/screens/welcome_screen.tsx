@@ -1,9 +1,29 @@
-import {Text, View} from 'react-native';
+import {Button, Text, View} from 'react-native';
+import {NavigationProp, useNavigation, useRoute} from '@react-navigation/native';
+import {DrawerNavigationProp, DrawerScreenProps, useDrawerProgress} from '@react-navigation/drawer';
+import {NativeStackScreenProps} from '@react-navigation/native-stack';
 
-export default function WelcomeScreen() {
+
+type RootStackParamList = {
+
+
+  Welcome: undefined;
+  User: undefined;
+
+};
+
+type WelcomeScreenNavigationProp = DrawerNavigationProp<RootStackParamList, 'Welcome'>;
+
+export default function WelcomeScreen({ navigation }: { navigation: WelcomeScreenNavigationProp }) {
+
+
   return (
     <View>
-      <Text>Welcome to the app</Text>
+      <Text>WelcomeScreen</Text>
+
+      <Button title="Go to User" onPress={() => {
+        navigation.toggleDrawer();
+      }} />
     </View>
   );
 }
