@@ -6,13 +6,7 @@ import HomePage from './src/home_page.tsx';
 import CategoriesScreen from './src/screens/categories_screen.tsx';
 import CategoriesDetailScreen from './src/screens/categories_details.tsx';
 
-function HomeScreen() {
-  return (
-    <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-      <Text>Home Screen2</Text>
-    </View>
-  );
-}
+
 
 const Stack = createNativeStackNavigator();
 
@@ -42,7 +36,7 @@ function RootStack() {
   );
 }
 
-export default function App2() {
+export default function App() {
   return (
     <NavigationContainer>
       <RootStack />
