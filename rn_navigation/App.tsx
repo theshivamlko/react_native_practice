@@ -11,19 +11,60 @@ import Ionicons from '@expo/vector-icons/Ionicons';
 import {TabScreen} from './src/screens/tabScreen.tsx';
 
 const Drawer = createDrawerNavigator();
+const Stack = createNativeStackNavigator();
+
+export  function homePage(){
+  return (
+    <Stack.Navigator initialRouteName={'Home'}>
+      <Stack.Screen
+        name="Home"
+        component={HomePage}
+        // options={(router,navigation)=>{}}
+        options={{
+          title: 'Home',
+          headerShown:false,
+          headerStyle: {
+            backgroundColor: 'pink',
+          },
+          contentStyle: {
+            backgroundColor: 'white',
+          },
+        }}
+      />
+      <Stack.Screen name="CategoriesScreen" component={CategoriesScreen} options={{
+        headerShown:false,
+
+      }} />
+      <Stack.Screen
+        name="CategoriesDetailScreen"
+        component={CategoriesDetailScreen}
+        options={{
+          headerShown:false,
+        }}
+      />
+    </Stack.Navigator>
+  );
+}
 
 function App() {
   return (
     <NavigationContainer>
-
-
-      <Drawer.Navigator initialRouteName="Welcome"
-      screenOptions={{
-        headerStyle: {backgroundColor: 'purple'},
-        drawerContentStyle: {backgroundColor: 'lightblue'},
-
-       }}>
-
+      <Drawer.Navigator
+        initialRouteName="HomePage"
+        screenOptions={{
+          headerStyle: {backgroundColor: 'purple'},
+          drawerContentStyle: {backgroundColor: 'lightblue'},
+        }}>
+        <Drawer.Screen
+          name="HomePage"
+          component={homePage}
+          options={{
+            headerStyle: {backgroundColor: 'purple'},
+            headerTintColor: 'white',
+            drawerLabel: 'HomePage',
+            drawerActiveBackgroundColor: 'lightgreen',
+          }}
+        />
         <Drawer.Screen
           name="Welcome"
           component={WelcomeScreen}
@@ -35,19 +76,27 @@ function App() {
           }}
         />
 
-        <Drawer.Screen name="User" component={UserScreen} options={{
-          drawerLabel: 'Profile',
-          headerStyle: {backgroundColor: 'green'},
-          headerTintColor: 'white',
-          headerShown:false,
-        }} />
+        <Drawer.Screen
+          name="User"
+          component={UserScreen}
+          options={{
+            drawerLabel: 'Profile',
+            headerStyle: {backgroundColor: 'green'},
+            headerTintColor: 'white',
+            headerShown: false,
+          }}
+        />
 
-        <Drawer.Screen name="Tabs" component={TabScreen} options={{
-          title:"Tabs Example",
-          drawerLabel: 'TabScreen',
-          headerStyle: {backgroundColor: 'green'},
-          headerTintColor: 'white',
-        }} />
+        <Drawer.Screen
+          name="Tabs"
+          component={TabScreen}
+          options={{
+            title: 'Tabs Example',
+            drawerLabel: 'TabScreen',
+            headerStyle: {backgroundColor: 'green'},
+            headerTintColor: 'white',
+          }}
+        />
       </Drawer.Navigator>
     </NavigationContainer>
   );
