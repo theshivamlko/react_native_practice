@@ -17,7 +17,13 @@ function App() {
     <NavigationContainer>
 
 
-      <Drawer.Navigator initialRouteName="Welcome">
+      <Drawer.Navigator initialRouteName="Welcome"
+      screenOptions={{
+        headerStyle: {backgroundColor: 'purple'},
+        drawerContentStyle: {backgroundColor: 'lightblue'},
+
+       }}>
+
         <Drawer.Screen
           name="Welcome"
           component={WelcomeScreen}
@@ -28,13 +34,16 @@ function App() {
             drawerActiveBackgroundColor: 'lightgreen',
           }}
         />
+
         <Drawer.Screen name="User" component={UserScreen} options={{
           drawerLabel: 'Profile',
           headerStyle: {backgroundColor: 'green'},
           headerTintColor: 'white',
+          headerShown:false,
         }} />
 
         <Drawer.Screen name="Tabs" component={TabScreen} options={{
+          title:"Tabs Example",
           drawerLabel: 'TabScreen',
           headerStyle: {backgroundColor: 'green'},
           headerTintColor: 'white',
