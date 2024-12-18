@@ -5,11 +5,8 @@ import {NativeStackScreenProps} from '@react-navigation/native-stack';
 
 
 type RootStackParamList = {
-
-
   Welcome: undefined;
   User: undefined;
-
 };
 
 type WelcomeScreenNavigationProp = DrawerNavigationProp<RootStackParamList, 'Welcome'>;
@@ -21,7 +18,11 @@ export default function WelcomeScreen({ navigation }: { navigation: WelcomeScree
     <View>
       <Text>WelcomeScreen</Text>
 
-      <Button title="Go to User" onPress={() => {
+      <Button title="Toggle Drawer" onPress={() => {
+        navigation.toggleDrawer();
+      }} />
+
+      <Button title="Open User" onPress={() => {
         navigation.toggleDrawer();
       }} />
     </View>

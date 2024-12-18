@@ -8,12 +8,15 @@ import CategoriesScreen from './src/screens/categories_screen.tsx';
 import CategoriesDetailScreen from './src/screens/categories_details.tsx';
 // import * as React from 'react';
 import Ionicons from '@expo/vector-icons/Ionicons';
+import {TabScreen} from './src/screens/tabScreen.tsx';
 
 const Drawer = createDrawerNavigator();
 
 function App() {
   return (
     <NavigationContainer>
+
+
       <Drawer.Navigator initialRouteName="Welcome">
         <Drawer.Screen
           name="Welcome"
@@ -23,17 +26,18 @@ function App() {
             headerTintColor: 'white',
             drawerLabel: 'Home',
             drawerActiveBackgroundColor: 'lightgreen',
-
           }}
         />
         <Drawer.Screen name="User" component={UserScreen} options={{
           drawerLabel: 'Profile',
           headerStyle: {backgroundColor: 'green'},
           headerTintColor: 'white',
+        }} />
 
-          // drawerIcon: ({color}) => (
-          //   <Ionicons name="add" size={24} color={color} />
-          // ),
+        <Drawer.Screen name="Tabs" component={TabScreen} options={{
+          drawerLabel: 'TabScreen',
+          headerStyle: {backgroundColor: 'green'},
+          headerTintColor: 'white',
         }} />
       </Drawer.Navigator>
     </NavigationContainer>
