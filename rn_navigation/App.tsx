@@ -11,6 +11,7 @@ import Ionicons from '@expo/vector-icons/Ionicons';
 import {TabScreen} from './src/screens/tabScreen.tsx';
 import {Text} from 'react-native';
 import {FavoritesContextProvider} from './src/store/context/favoriteContext.tsx';
+import FavoriteListScreen from './src/screens/favoriteListScreen.tsx';
 
 const Drawer = createDrawerNavigator();
 const Stack = createNativeStackNavigator();
@@ -101,6 +102,16 @@ function App() {
             options={{
               title: 'Tabs Example',
               drawerLabel: 'TabScreen',
+              headerStyle: {backgroundColor: 'green'},
+              headerTintColor: 'white',
+            }}
+          />
+          <Drawer.Screen
+            name="Favorite"
+            component={FavoriteListScreen}
+            options={{
+              title: 'Favorite',
+              drawerLabel: 'Favorite',
               headerStyle: {backgroundColor: 'green'},
               headerTintColor: 'white',
             }}
