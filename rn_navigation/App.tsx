@@ -9,11 +9,13 @@ import CategoriesDetailScreen from './src/screens/categories_details.tsx';
 // import * as React from 'react';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import {TabScreen} from './src/screens/tabScreen.tsx';
+import {Text} from 'react-native';
+import {FavoritesContextProvider} from './src/store/context/favoriteContext.tsx';
 
 const Drawer = createDrawerNavigator();
 const Stack = createNativeStackNavigator();
 
-export  function homePage(){
+export function homePage() {
   return (
     <Stack.Navigator initialRouteName={'Home'}>
       <Stack.Screen
@@ -22,7 +24,6 @@ export  function homePage(){
         // options={(router,navigation)=>{}}
         options={{
           title: 'Home',
-          headerShown:false,
           headerStyle: {
             backgroundColor: 'pink',
           },
@@ -31,15 +32,22 @@ export  function homePage(){
           },
         }}
       />
-      <Stack.Screen name="CategoriesScreen" component={CategoriesScreen} options={{
-        headerShown:false,
-
-      }} />
+      <Stack.Screen
+        name="CategoriesScreen"
+        component={CategoriesScreen}
+        options={{
+          headerShown: false,
+        }}
+      />
       <Stack.Screen
         name="CategoriesDetailScreen"
         component={CategoriesDetailScreen}
         options={{
-          headerShown:false,
+          // header: ({ navigation, route }) => (
+          //   <Text>Categories Custom Header</Text>
+          // ),
+          headerRight: () => <Text>Favorite</Text>,
+          headerShown: true,
         }}
       />
     </Stack.Navigator>
@@ -48,57 +56,58 @@ export  function homePage(){
 
 function App() {
   return (
-    <NavigationContainer>
-      <Drawer.Navigator
-        initialRouteName="HomePage"
-        screenOptions={{
-          headerStyle: {backgroundColor: 'purple'},
-          drawerContentStyle: {backgroundColor: 'lightblue'},
-        }}>
-        <Drawer.Screen
-          name="HomePage"
-          component={homePage}
-          options={{
+    <FavoritesContextProvider>
+      <NavigationContainer>
+        <Drawer.Navigator
+          initialRouteName="HomePage"
+          screenOptions={{
             headerStyle: {backgroundColor: 'purple'},
-            headerTintColor: 'white',
-            drawerLabel: 'HomePage',
-            drawerActiveBackgroundColor: 'lightgreen',
-          }}
-        />
-        <Drawer.Screen
-          name="Welcome"
-          component={WelcomeScreen}
-          options={{
-            headerStyle: {backgroundColor: 'purple'},
-            headerTintColor: 'white',
-            drawerLabel: 'Home',
-            drawerActiveBackgroundColor: 'lightgreen',
-          }}
-        />
+            drawerContentStyle: {backgroundColor: 'lightblue'},
+          }}>
+          <Drawer.Screen
+            name="HomePage"
+            component={homePage}
+            options={{
+              headerStyle: {backgroundColor: 'purple'},
+              headerTintColor: 'white',
+              drawerLabel: 'HomePage',
+              drawerActiveBackgroundColor: 'lightgreen',
+            }}
+          />
+          <Drawer.Screen
+            name="Welcome"
+            component={WelcomeScreen}
+            options={{
+              headerStyle: {backgroundColor: 'purple'},
+              headerTintColor: 'white',
+              drawerLabel: 'Home',
+              drawerActiveBackgroundColor: 'lightgreen',
+            }}
+          />
 
-        <Drawer.Screen
-          name="User"
-          component={UserScreen}
-          options={{
-            drawerLabel: 'Profile',
-            headerStyle: {backgroundColor: 'green'},
-            headerTintColor: 'white',
-            headerShown: false,
-          }}
-        />
+          <Drawer.Screen
+            name="User"
+            component={UserScreen}
+            options={{
+              drawerLabel: 'Profile',
+              headerStyle: {backgroundColor: 'green'},
+              headerTintColor: 'white',
+            }}
+          />
 
-        <Drawer.Screen
-          name="Tabs"
-          component={TabScreen}
-          options={{
-            title: 'Tabs Example',
-            drawerLabel: 'TabScreen',
-            headerStyle: {backgroundColor: 'green'},
-            headerTintColor: 'white',
-          }}
-        />
-      </Drawer.Navigator>
-    </NavigationContainer>
+          <Drawer.Screen
+            name="Tabs"
+            component={TabScreen}
+            options={{
+              title: 'Tabs Example',
+              drawerLabel: 'TabScreen',
+              headerStyle: {backgroundColor: 'green'},
+              headerTintColor: 'white',
+            }}
+          />
+        </Drawer.Navigator>
+      </NavigationContainer>
+    </FavoritesContextProvider>
   );
 }
 

@@ -1,14 +1,19 @@
 import {CATEGORIES, MEALS} from '../data/dummy-data';
-import {FlatList, View, Text, Image} from 'react-native';
-import {useEffect, useLayoutEffect, useState} from 'react';
+import {FlatList, View, Text, Image, Pressable} from 'react-native';
+import React, {useContext, useEffect, useLayoutEffect, useState} from 'react';
 import {} from '@react-navigation/native';
 import Meal from '../data/models/meal.tsx';
+import {FavoritesContext} from '../store/context/favoriteContext.tsx';
 
 export default function CategoriesDetailScreen({route}: {route: any}) {
   const [mealsList, setMealsList] = useState<Meal[]>([]);
   const routesInfo = route;
-  console.log(`CategoriesScreen init ${route.params} `);
+  console.log(`CategoriesScreen init ${route.params.category.id} `);
   console.log(route.params);
+
+  const favoriteMelaContext=useContext(FavoritesContext);
+  const isFavorite=favoriteMelaContext.ids.includes(route.params.category.id);
+  console.log(`CategoriesScreen favoriteMelaContext ${favoriteMelaContext.ids} `);
 
   useEffect(() => {
     const list = MEALS.filter(meal => {
@@ -22,7 +27,7 @@ export default function CategoriesDetailScreen({route}: {route: any}) {
   useLayoutEffect(() => {
     // run to update something Before component is mounted
 
-    // navigation.setOptions({}) , can set option after navigation happens
+    // navigation.setOptions({}) , can set option for a next page after navigation happens
 
   }, []);
 
@@ -55,6 +60,18 @@ export default function CategoriesDetailScreen({route}: {route: any}) {
                 }}>
                 {item.title}
               </Text>
+
+              <Pressable onPress={()=>{
+                if(isFavorite) {
+                favoriteMelaContext.removeFavorite(route.params.category.id);
+                }else {
+                  favoriteMelaContext.addFavorite(route.params.category.id);
+                }
+              }}>
+
+            <Text style={{color:isFavorite?'yellow':'blue'}}>Favorite</Text>
+              </Pressable>
+
             </View>
           );
         }}
